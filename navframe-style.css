@@ -1,0 +1,37 @@
+﻿@charset "utf-8";
+
+/* CSS for Kopijunkie.net Demo Website Navigation Frame */
+
+body
+{
+    font-family: Arial,Helvetica,Verdana,sans-serif;
+    color: #393838;
+    font-size: 0.8em;
+    background:#fff9e8;
+}
+
+a:link
+{
+    color: #75410d;
+    text-decoration: none;
+}
+
+a:visited
+{
+    color: #b46c04;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: #d38444;
+    text-decoration: none;
+}
+
+img 
+{
+    width: 30px;
+    height: 30px;
+    padding: 0 10px;
+    vertical-align: middle;
+}

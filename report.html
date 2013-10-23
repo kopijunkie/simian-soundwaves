@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>COMSM0104 | Assignment 2: Images - Report</title>
+</head>
+<body>
+<h2>COMSM0104 | Assignment 2: Images - Report</h2>
+
+<h3>Illustrations Made and Techniques Used</h3>
+<p>I chose to focus mainly on drawing/painting using GIMP and InkScape, though GIMP was used more predominantly for the images made.</p>
+<p>The following techniques for JavaScript and GIMP/Inkscape were used/implemented around the website for the assignment:</p>
+
+<h3>JavaScript</h3>
+
+<h4>Style Sheet Changer</h4>
+<p>Style sheet changer toggle control via a link on the website's navigation bar which uses JavaScript to make the change. This feature also relies on creating a browser cookie to store the last selected style sheet to ensure that the style is persistent throughout the website as long as the visitor is on the website.</p>
+
+<p>The technique and script was based largely on <a href="http://www.alistapart.com/articles/alternate/">Alternative Style: Working With Alternate Style Sheets</a>. But I decided to expand on it by making the style sheet changer into a single link toggle link. Based on the current active style sheet, this link's name would then change to the alternate style sheet's name (e.g. when the style '<strong>Hello Sunshine</strong>' is clicked, <strong>sunny_style.css</strong> becomes the active style sheet and the link's (innerHTML) name changes to '<em>November Rain</em>', which is <em>rainy_style.css</em>.</p>
+
+<p>Some parts of the tutorial's script had to be greatly modified or taken out completely in order for it to work properly, particularly in order to get the chosen style to be persistent when changing between pages in the submission system. The cookie storing method turned out to be very important and very time consuming in this respect.</p>
+
+<p>These are the code added in that make the name change and calls the function to switch style sheets:</p>
+<code>
+function setActiveStyleSheet(title) {<br/>
+    document.getElementById('styler').href = title + '_style.css';<br/>
+    var i, a, main;<br/>
+    if (title == 'rainy') {<br/>
+
+        document.getElementById('style-changer').innerHTML = 'Hello Sunshine';<br/>
+        document.getElementById('style-changer').onclick = new Function("setActiveStyleSheet('sunny')");<br/>
+    }<br/>
+    else {<br/>
+        document.getElementById('style-changer').innerHTML = 'November Rain';<br/>
+        document.getElementById('style-changer').onclick = new Function("setActiveStyleSheet('rainy')");<br/>
+
+    }<br/>
+    createCookie("style", title, 365);<br/>
+    return title;<br/>
+}
+</code>
+<p>And this is the added code that makes the style sheet selection persistent throughout the website and also set the default style sheet if there is no cookie or style sheet already created/selected:</p>
+<code>
+function styleSwitcher(title) {<br/>
+    var cookie = readCookie("style");<br/>
+
+    if (title == null &amp;&amp; cookie == null) {<br/>
+        title = 'rainy';    /* Default Style */<br/>
+	}<br/>
+    if (title != null &amp;&amp; cookie != title) {<br/>
+        cookie = title;<br/>
+
+    }<br/>
+    setActiveStyleSheet(cookie);<br/>
+    return false;<br/>
+}
+</code>
+
+<h4>Automatic Image Slider (jQuery)</h4>
+<p>An automatic image slider made using the jQuery library was implemented in the <a href="media.html">Media page</a>. The script and tutorial are from <a href="http://www.sohtanaka.com/web-design/automatic-image-slider-w-css-jquery/">Automatic Image Slider w/ CSS &amp; jQuery</a>.</p>
+
+<p>As I did not have enough time to learn jQuery in further enough detail to play around with the possible features, I only made very minor changes in the coding to get it working and displayed properly on the website:</p> 
+<ul>
+    <li>hard coding the window width to match the set image reel width of 460px, as otherwise the image reel's display rotation calculation was totally off</li>
+    <li>removed the <code>.paging { display: none; }</code> part from the CSS and <code>$(".paging").show();
+</code> as shown in the tutorial as the function to show the paging did not seem to work and I personally do not think the extra CSS/jQuery codes are necessary.</li> 
+</ul>
+<p>The image slider has been set to pause the image rotation "on hover" and the visitor can jump between the 4 photos by clicking on the corresponding paging number. The image slider is actually not limited to just 4 images, as the jQuery script actually calculates the length of the image reel based on number of images listed in the <code>image_reel</code> section of the HTML file.</p>
+
+<h3>GIMP / InkScape</h3>
+
+<h4>Website Background Scrolling Transition Effect (GIMP)</h4>
+<p>The website's background fade/transition scroll effect relied on 2 aspects, the first being the CSS groundwork which was laid out in the first assignment as detailed in <a href="http://css-tricks.com/video-screencasts/68-think-geek-background-fade-technique/">#68: Think Geek Background Fade Technique</a>.</p>
+
+<p>For this assignment, I made the following from scratch:</p>
+<ul>
+<li>2 sets of more complex dual coloured images (1 for each style sheet) inspired by the shadow images from Apple's 'iPod dancer' TV ads in place of the plain circles on my website submitted for Assignment 1</li>
+<li>2 colour gradient strips (again, 1 for each style sheet) which when combined with the dual coloured shadows give the transition effect with the help of the CSS framework. Two sets of the gradient strips and shadows were made since I was also implementing an alternate style sheet.</li>
+
+</ul>
+<p>This was based on the <a href="http://www.gimptalk.com/forum/topic/Simple-Ipod-Ad-Look-5232-1.html">iPod Ad silhouette tutorial/thread</a> on the GimpTalk forums.</p>
+
+<p>The following files have been submitted for reference:
+<ul>
+    <li>Two of my XCF files (<a href="BG-Shadow4-black.xcf">BG-Shadow4-black.xcf</a>, <a href="BG-Shadow3-yellow.xcf">BG-Shadow3-yellow.xcf</a>) for the individual shadow images (in total there were 14 images/XCF files to work on; 7 for each style sheet)</li> 
+    <li>One of my two XCF files (<a href="transition-img.xcf">transition-img.xcf</a>) for the combined result to make the actual background images (<a href="transition-img.png">transition-img.png</a>, <a href="transition-img-alt.png">transition-img-alt.png</a>) used in the website</li> 
+
+</ul>
+</p>
+
+<h4>Poster with Vector Images on <a href="index.html">Main Page</a> (GIMP and Inkscape)</h4>
+<p>The <a href="http://www.gimptalk.com/tutorial/obama-poster-tutorial-revamped!-warning-image-37034-1.html">Obama poster tutorial</a> was refered to to make the 4 images seen in the <a href="Gig-Poster.png">poster image</a> displayed on the website's <a href="index.html">Main Page (Halloween Special Giveaway post)</a>. The poster and all 4 images were made from scratch using a combination of GIMP (poster layout and design) and Inkscape (vector images).</p>
+
+<p>The following group of SVG and XCF files were submitted as reference for the process/steps to make each of the 4 images (in total there were 16 files to produce the final poster image in <a href="Kasabian-Poster.xcf">Kasabian-Poster.xcf</a>):</p>
+<ul>
+    <li>Step 1: <a href="tom.xcf">tom.xcf</a></li>
+    <li>Step 2: <a href="tom.svg">tom.svg</a></li>
+    <li>Step 3: <a href="tom1.png">tom1.png</a></li>
+
+    <li>Step 4 (end product): <a href="tom1.xcf">tom.xcf</a></li>
+</ul>
+
+<h4><a href="#rotoscoping">Rotoscope</a> Effect on Photo Image in <a href="spotlight.html">Band of the Month page</a> (GIMP and Inkscape)</h4>
+<p>The tutorial on <a href="http://www.photoshopessentials.com/photo-effects/rotoscope/">Combining Reality With A Rotoscope-Style Painting</a> was refered to to make the band image at the top of the <a href="spotlight.html">Band of the Month page</a>.</p>
+
+<p>The following is the "before" and "after" comparison of this technique:</p>
+<table>
+    <tr>
+        <td>
+        <strong>Before:</strong><br/>
+        <img src="snowpatrol.jpg" alt="Original image (before)"/>
+        </td>
+    </tr>
+    <tr/>
+
+    <tr>
+        <td>
+        <strong>After:</strong><br/>
+        <img src="snowpatrol-rotoscope.png" alt="Partially rotoscoped image (after)"/>
+        </td>
+    </tr>
+</table>
+
+<p>The following SVG and XCF files have been submitted for reference:</p>
+
+<ul>
+    <li>Step 1: <a href="snowpatrol-cell-shading.svg">snowpatrol-cell-shading.svg</a></li>
+    <li>Step 2: <a href="snowpatrol-cell-shading-edited.png">snowpatrol-cell-shading-edited.png</a> (some minor re-editing and resulting additional SVG files were made for this image to achieve the final result)</li>
+    <li>Step 4 (end product): <a href="snowpatrol-rotoscope.xcf">snowpatrol-rotoscope.xcf</a></li>
+</ul>
+
+<h4>Photo Manipulation/Editing Effect (GIMP)</h4>
+<p>The photo images on the <a href="index.html">Main Page</a> and on the	<a href="snowpatrol201109.html">Snow Patrol (20 Nov 09) review page</a> (the <a href="coldplay190909.html">Coldplay (19 Sep 09) review page</a> has been left with the original unaltered photos as an "in-context comparison") were manipulated on GIMP to give a more dramatic/moody (and apparently "Hollywood movie-like") effect.</p>
+<p>This technique was based on the <a href="http://gimpology.com/submission/view/make_your_photo_look_like_a_hollywood_movie">Make Your Photo Look Like a Hollywood Movie</a> tutorial.</p>
+
+<p>
+The following is the "before" and "after" comparison of this technique:
+</p>
+<table>
+    <tr>
+        <td>
+        <strong>Before:</strong><br/>
+        <img src="CP-IMG_2729.jpg" alt="Before Photo Editing or Manipulation"/>
+        </td>
+        <td>
+        <strong>After:</strong><br/>
+        <img src="CP-IMG_2729-gimped.png" alt="After Photo Editing or Manipulation"/>
+        </td>
+    </tr>
+</table>
+<p>I did not make use of the final step for the "Aspect Ratio" as I personally didn't feel it was required for my photos. Also, I was a bit more liberal in the use of the paintbrush in Step 3 as (1) I don't have a brush size of 350px and (2) I felt the end results for my photos looked better with a larger area of the sharp layer revealed.</p>
+
+<h4>Social Media Icons (GIMP)</h4>
+<p>Each of the set of social media link icons on the website's footer area were made using different technique combinations and tutorials for variety.</p>
+<p> The following tutorials were referred to and the corresponding image generated:</p>
+<ul>
+    <li>
+    <a href="http://www.squidoo.com/jgs-rippedfabric-gimp2_6">Creating Ripped Fabric in GIMP 2.6</a>
+    <br/>
+    <img src="facebook.png" alt="Facebook PNG (ripped fabric)"/>
+
+    <br/>
+    GIMP File: <a href="torn-cloth.xcf">torn-cloth.xcf</a>
+    </li>
+    
+    <li>
+    <a href="http://www.dawghousedesignstudio.com/archives/2009/create-a-realistic-grunge-peeling-sticker-in-photoshop/">Create a Realistic Grunge Peeling Sticker in Photoshop</a>
+    <br/>
+    <img src="youtube.png" alt="YouTube PNG (peeling sticker-round)"/>
+
+    <br/>
+    GIMP File: <a href="sticker1.xcf">sticker1.xcf</a>
+    <br/>
+    </li>
+    
+    <li>
+    <a href="http://www.littleboxofideas.com/blog/tutorials/create-heavy-distressed-grunge-social-sticker-icon-in-photoshop">Create Heavy Distressed Grunge Social Sticker Icon in Photoshop</a>
+    <br/>
+
+    <img src="flickr.png" alt="Flickr PNG (torn sticker)"/>
+    <br/>
+    GIMP File: <a href="sticker2.xcf">sticker2.xcf</a>
+    </li>
+    
+    <li>
+    And the below image is the result of combination of the above 2 techniques along with using custom brushes in GIMP (as shown in the screencaps below the resulting image):<br/>
+    <img src="twitter.png" alt="Twitter PNG (torn peeling sticker)"/>
+    <br/>
+    GIMP File: <a href="sticker3.xcf">sticker3.xcf</a>
+    </li>
+    
+    <li>
+    This last icon was made by experimenting with a custom brush set of Polaroid shapes and combining the resulting image with the use of the Drop Shadow filter already used in making the other icons to give it some texture and try to make the brush image as realistic as the other icons:<br/>
+    <img src="myspace.png" alt="MySpace PNG (polaroid stack - brush image)"/>
+    <br/>
+    GIMP File: <a href="polaroid-stack.xcf">polaroid-stack.xcf</a>
+    </li>
+</ul>
+
+<h4>Website Header Image and Footer Background (GIMP)</h4>
+<p>Steps 1-2 of the tutorial on <a href="http://www.pvmgarage.com/en/2009/06/how-to-create-a-large-header-with-a-simple-western-scene/">How to Create a Large Header with a Simple Western Scene</a> was refered to to make the wooden plank background for both the website's header image and the footer background.</p>
+<p>Aside from the wood texture image used (source of image listed <a href="#texture-source">below</a>), the entire header image was made from scratch using the following techniques:</p>
+
+<ul>
+    <li>
+    Technique used in tutorial on <a href="http://www.fabiovisentin.com/tutorial/GIMP_transparent_image/gimp_how_to_make_transparent_image.asp">how to make transparent an image with GIMP</a> (links to <a href="IMG_5085.JPG">BEFORE</a> / <a href="headphones-render.png">AFTER</a> images)
+    </li>
+    <li>Drop Shadow filter</li>
+</ul>
+<p>GIMP File: <a href="header-wider.xcf">header-wider.xcf</a></p>
+
+<h3>Other Resources Used</h3>
+<p>The lecture notes and the book <em>Web Design in a Nutshell (3rd Edition)</em> (Jennifer Niederst Robbins, O'Reilly, 2006) were used as reference for general JavaScript code elements and their respective attributes as well as looking up the basics of vector drawing and/or graphics properties.</p>
+
+<p>The following websites were also referred to for general GIMP, Inkscape and JavaScripttutorials and tips or just for inspiration:</p>
+
+<ul>
+    <li>
+    <a href="http://css-tricks.com/video-screencasts/68-think-geek-background-fade-technique/">#68: Think Geek Background Fade Technique</a><br/>
+    This tutorial was used in Assignment 1 to set up the CSS/XHTML groundwork for the image(s) I made for Assignment 2. It was referred to again this time to understand what images I need and how they are made.
+    </li>
+    <li>
+    <a href="http://www.thinkgeek.com/">Think Geek</a><br/>
+
+    This is the original site that uses the transitioning/fading background image technique used on my website and hence the original source of inspiration. For the final product on my website, I made my current background image from scratch and only used this site's image as an inspiration source and to understand how it was done alongside the tutorial mentioned above.
+    </li>
+    <li id="texture-source">
+    <a href="http://www.arsgrafik.com/free-texture-image-wood5/">Ars Grafik</a><br/>
+    Obtained wood texture image used for website's header image and footer backgrounds.
+    </li>
+    <li>
+    <a href="http://www.inspiredm.com/2009/06/14/web-design-trend-hunting-the-messy-desk-examples-best-practices/">Web Design Trend Hunting – The Messy Desk: Examples &amp; Best Practices</a><br/>
+
+    Used as reference and inspiration source for website's header image.
+    </li>
+    <li>
+    <a href="http://obeygiant.com/headlines/obama">OBAMA – Obey Giant</a><br/>
+    The <a href="http://en.wikipedia.org/wiki/Barack_Obama_%22Hope%22_poster">Barack Obama "Hope" poster</a> made by Shepard Fairly was used as an inspirational starting point for the Kasabian gig poster I made and displayed on the <a href="https://wwwa.fen.bris.ac.uk/COMSM0104/Images/20116/daylate/index.html">Main Page</a>.
+    </li>
+    <li id="rotoscoping">
+
+    <a href="http://www.allmoviephoto.com/photo/2006_A_Scanner_Darkly_photo.html">Images of the rotoscoping effect</a> used in the movie <a href="http://en.wikipedia.org/wiki/A_Scanner_Darkly_%28film%29">A Scanner Darkly</a> were the inspiration for the attempt at imitating the <a href="http://en.wikipedia.org/wiki/Rotoscope">rotoscoping effect</a> in the main image on the <a href="spotlight.html">Band of the Month page</a>.
+    </li>
+</ul>
+<h3>Tools Used</h3>
+<table>
+
+	<tr>
+		<td>
+			Graphics: 
+		</td>
+		<td>
+			Gimp 2.6.8 (with custom brushes and fonts installed), Inkscape 0.47
+        </td>
+	</tr>
+    <tr>
+		<td>
+
+			JavaScript/XHTML/CSS Coding: 
+		</td>
+		<td>
+			Notepad++ with HTML, CSS plug-ins (Windows)
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Development Browser: 
+		</td>
+
+		<td>
+			Firefox 3.6
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Firefox Plug-ins Used: 
+		</td>
+		<td>
+			Firebug, Web Developer
+		</td>
+
+	</tr>
+</table>
+
+<h3 id="browsers">Testing</h3>
+<p>Browsers tested:</p>
+<ul>
+    <li>Firefox 3.6, 3.5 (on Windows and Linux) with Firebug plug-in</li>
+    <li>Internet Explorer 7*, 8 (Windows)</li>
+</ul>
+<p>* As in the first assignment, testing for IE 7 compatability was done using the IE 7 Browser Mode in IE 8's Developer Tools as I am unable to install older versions of IE on my home PC, which is running on Windows 7. There is no option for IE 6 Browser Mode. The only other viable alternative I found (a program called IETester) allowed for IE 7 mode, but trying to launch the IE 6 mode caused the program to crash on my PC every time.</p>
+
+<p>I am aware that IE 6 in particular is unable to handle PNG files with partial transparency, but as I am unable to reliably test any fix for IE 6 on my Windows 7 computer or in the Unix labs, I did not attempt to include the CSS fix detailed in the <a href="http://www.komodomedia.com/blog/2007/11/css-png-image-fix-for-ie/">Komodo Media blog</a>.</p>
+
+<p>Standards validation:</p>
+<ul>
+    <li>The Web Developer toolbar add-on for Firefox allows me to know the page validation status at a glance when a web page is opened in Firefox.</li>
+    <li>The style sheets and each of the web pages were all run through the W3C CSS and Markup Validation Services respectively. This is to ensure that there are no errors and that the files meet the XHTML 1.0 Strict and CSS 2.1 standards.</li>
+</ul>
+
+</body>
+</html>

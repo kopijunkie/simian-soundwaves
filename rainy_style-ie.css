@@ -1,0 +1,699 @@
+@charset "utf-8";
+
+/* Reset everything */
+
+* 
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Overal website style */
+
+body
+{
+    background: #404143;
+    font-family: "Lucida Sans Unicode","Lucida Grande","Lucida Sans",Verdana,Arial,sans-serif;
+    color: #ffffff;
+    font-size: 0.75em;
+}
+
+/* Style to center website for resolutions above 1280px (website not fluid beyond 1280px) */
+
+div#main
+{
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Style for Header */
+
+div#header
+{
+    height: 160px;
+    background: #425b84;
+    color: #fefefe;
+    min-width: 560px;
+    max-width: 1240px;
+    padding: 20px;
+}
+
+div#header h1
+{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 4.5em;
+    font-style: italic;
+}
+
+div#tagline
+{
+    padding-top: 15px;
+}
+
+div#tagline h3
+{
+    font-family: "Trebuchet MS",Arial,sans-serif;
+    font-size: 1.5em;
+    font-style: italic;
+    color: #ee5f00;
+    text-align: center;
+    border-top: 1px dotted #ffffff;
+    border-bottom: 1px dotted #ffffff;
+}
+
+div.inner
+{
+    padding: 20px;
+}
+
+/* Style for Navigation Bar */
+
+ul#navbar
+{
+    height: 20px;
+    background: #334462;
+    list-style: none;
+    min-width: 600px;
+    max-width: 1280px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+ul#navbar li a
+{
+    font-family: "Trebuchet MS",Arial,sans-serif;
+    font-size: 1.55em;
+    color: #ffffff;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+ul#navbar li
+{
+    float: left;
+    padding-right: 1%;
+    margin-left: 15px;
+}
+
+ul#navbar a:link
+{
+    color: #ffffff;
+}
+
+ul#navbar a:hover
+{
+    color: #303030;
+}
+
+ul#navbar a:focus
+{
+    color: #303030;
+}
+
+/* Style for Body (to get the transitioning backgrounds effect) */
+
+div#wrapper
+{
+    background: url(images/bodytilebottom-tall.jpg) repeat-x left bottom;
+    width: 100%;
+    min-width: 600px;
+    max-width: 1280px;
+    float: left;
+}
+
+div#fancy-wrapper
+{
+    background: url(images/transition-img.png) fixed repeat-x -435px;
+    margin: 0px;
+    padding: 0px;
+}
+
+div#inner-wrapper
+{
+    width: 100%;
+    margin: 0 auto;
+    min-height: 900px;
+}
+
+/* Style for Footer */
+
+div#footer
+{
+    background: #101620;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    min-width: 600px;
+    max-width: 1280px;
+    clear: left;
+    text-align: center;
+}
+
+div#footer img
+{
+    border: 0;
+    vertical-align: middle;
+}
+
+div#footer ul
+{
+    list-style: none;
+}
+
+div#footer li
+{
+    display: inline;
+    font-family: "Arial Black",sans-serif;
+}
+
+div#footer p
+{
+    color: #585858;
+}
+
+/* Style for Sidebar elements */
+
+div#sidebar
+{
+    float: right;
+    width: 20%;
+    min-width: 210px;
+    max-width: 300px;
+    text-align: center;
+    color: #555555;
+}
+
+div#sidebar h2
+{
+    font-family: "Arial Black",sans-serif;
+    font-size: 1.75em;
+    color: #555555;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+div#sidebar p
+{
+    padding-bottom: 10px;
+}
+
+div#sidebar a:hover
+{
+    color: #ffffff;
+}
+
+div#sidebar-spotlight
+{
+    background: #e4ddd0;
+    padding: 5px;
+    border: 1px solid #ffffff;
+}
+
+div#sidebar-spotlight img
+{
+    margin-left: 0px;
+    width: 80%;
+    padding: 5px;
+    background: #ffffff;
+    border: 1px solid #555555;
+}
+
+div#sidebar-spotlight strong
+{
+    text-transform: uppercase;
+    font-size: 1.5em;
+    color: #425b84;
+    padding-top: 10px;
+}
+
+div#sidebar-spotlight p
+{
+    padding-top: 10px;
+}
+
+div#sidebar-spotlight a
+{
+    text-decoration: none;
+    color: #ee5f00;
+    letter-spacing: 0.1em;
+    font-size: 1.25em;
+}
+
+div#sidebar-listening
+{
+    background: #e4ddd0;
+    padding: 5px;
+    border: 1px solid #ffffff;
+}
+
+div#sidebar-listening img
+{
+    margin-left: 0px;
+    width: 50%;
+    padding: 5px;
+    background: #ffffff;
+    border: 1px solid #555555;
+}
+
+div#sidebar-crew
+{
+    background: #e4ddd0;
+    padding: 5px 5px 20px 5px;
+    border: 1px solid #ffffff;
+}
+
+div#sidebar-crew ul
+{
+    list-style: none;
+    padding-bottom: 15px;
+}
+
+div#sidebar-crew li a
+{
+    text-decoration: none;
+    color: #ee5f00;
+}
+
+div#sidebar-crew li
+{
+    padding-bottom: 10px;
+}
+
+/* Style for a basic button links (e.g. "Want To Contribute?" button) */
+
+a.button
+{
+    background: #ee5f00;
+    font-family: "Arial Black",sans-serif;
+    text-decoration: none;
+    color: #ffffff;
+    height: 20px;
+    padding: 10px 5px 10px 5px;
+    border: 1px solid #c6c6c6;
+}
+
+a.button:hover
+{
+    background: #425b84;
+}
+
+/* Divider spacer - for use when needed throughout the website */
+div.divider-spacer
+{
+    padding-top: 10px;
+    clear: both;
+}
+
+/* Styles for main body of all the pages */
+
+div#content
+{
+    width: 78%;     /* Fix for width quirk in IE7 when browser window reduced/resized */
+}
+
+div#content p
+{
+    padding-bottom: 10px;
+}
+
+div#content a
+{
+    color: #5581c0;
+    text-decoration: none;
+}
+
+div.headline
+{
+    height: 30px;
+    background: #303030;
+    font-family: "Gill Sans","Gill Sans MT","Helvetica Neue","Helvetica",Arial,sans-serif;
+    font-size: 1.1em;
+    color: #e4ddd0;
+    line-height: 1.2em;
+    padding: 5px 20px;
+}
+
+div.section-title
+{
+    height: 18px;
+    background: #303030;
+    font-family: "Gill Sans","Gill Sans MT","Helvetica Neue","Helvetica",Arial,sans-serif;
+    font-size: 1.1em;
+    color: #e4ddd0;
+    line-height: 1.2em;
+    padding: 5px 15px;
+}
+
+div.post-info
+{
+    padding-top: 10px;
+}
+
+/* Styles for index.html (main page) */
+
+div.news
+{
+    padding-top: 10px;
+}
+
+div.news p
+{
+    padding-top: 10px;
+}
+
+/* Styles for reviews.html, features.html (articles listing pages) */
+
+div#articles-list
+{
+    padding-top: 10px;
+}
+
+div#articles-list p
+{
+    padding-top: 10px;
+}
+
+/* Styles for media.html (multimedia listing page) */
+
+div#media-list
+{
+    padding-top: 10px;
+}
+
+div#media-list p
+{
+    padding-top: 10px;
+}
+
+ul.photo-gallery
+{
+    list-style: none;
+}
+
+ul.photo-gallery img
+{
+    margin: 0;
+}
+
+ul.photo-gallery li a
+{
+    float: left;
+    padding: 10px;
+    background: #eeeeee;
+    border: 1px solid #ffffff;
+    position: relative;
+}
+
+ul.photo-gallery li a:hover
+{
+    background: #e4ddd0;
+    border: 1px solid #000000;
+}
+
+/* Styles for about.html ('About Us' page) */
+
+div#about p strong
+{
+    color: #ee5f00;
+    text-transform: uppercase;
+}
+
+/* Style for table of the crew (about.html) */
+
+table#crew
+{
+    margin: 10px;
+}
+
+table#crew tr
+{
+    background: #ee5f00;
+}
+
+table#crew td
+{
+    padding: 10px;
+    border: 1px solid #e4ddd0;
+}
+
+table#crew td.name
+{
+    font-weight: bolder;
+}
+
+/* Styles for spotlight.html ('Band of the Month' page) */
+
+div#featured
+{
+    padding-top: 10px;
+}
+
+div#featured h3
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #ee5f00;
+    border-bottom: 1px solid #ee5f00;
+}
+
+ul#band-info
+{
+    list-style: none;
+}
+
+ul#band-info li
+{
+    margin-bottom: 10px;
+}
+
+ul#band-info li span
+{
+    color: #ee5f00;
+    font-weight: bolder;
+}
+
+ul.lineup
+{
+    list-style: none;
+    margin-left: 20px;
+}
+
+ul.lineup li
+{
+    margin-bottom: 10px;
+}
+
+ul#discography
+{
+    list-style: none;
+    margin-top: 10px;
+}
+
+ul#discography li
+{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+/* Style for spotlight/featured band timeline (spotlight.html) */
+
+ul.band-members
+{
+    list-style: none;
+    margin: 0;
+    padding: 0 0 15px 0;
+}
+
+ul.band-members li
+{
+    border: 1px solid #dddddd;
+    color: #000000;
+    margin-bottom: 5px;
+    padding: 3px 0;
+    position: relative;
+    text-align: center;
+}
+
+ul.band-members li em
+{
+    color: #000000;
+}
+
+/* width (for each) = 88% (max width) - left value */
+/* left (for each) = 5.5% * years after start (and + 1.375% per quarter of year) */
+ul.band-members li#garyL
+{
+    background: #e10b1f;
+    width: 85.25%;
+    left: 4.125%;
+}
+
+ul.band-members li#markM
+{
+    background: #fb7d29;
+    width: 63.25%;
+    left: 4.125%;
+}
+
+ul.band-members li#michaelM
+{
+    background: #5581c0;
+    width: 12.375%;
+    left: 4.125%;
+}
+
+ul.band-members li#jonnyQ
+{
+    background: #5581c0;
+    width: 68.75%;
+    left: 20.625%;
+}
+
+ul.band-members li#nathanC
+{
+    background: #96cf67;
+    width: 35.75%;
+    left: 53.625%;
+}
+
+ul.band-members li#paulW
+{
+    background: #fb7d29;
+    width: 22%;
+    left: 67.375%;
+}
+
+ul.band-members li#tomS
+{
+    background: #fde55e;
+    width: 22%;
+    left: 67.375%;
+}
+
+ul.years
+{
+    list-style-type: none;
+    padding: 0;
+    display: block;
+}
+
+/* width = 100% / 17 years = 5.88% (and subtract 0.12% to allow space for borders) */
+ul.years li
+{
+    border-top: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    float: left;
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+    width: 5.5%;
+}
+
+ul.years li.start
+{
+    border-left: 1px solid #ffffff;
+}
+
+/* General style for all images */
+
+img
+{
+    margin-left: 20px;
+    border: 1px solid #999999;
+}
+
+/* General style for photos with caption */
+
+div.SP-IMG_4148
+{
+    position: relative;
+    display: block;
+    height: 458px;
+    width: 324px;
+}
+
+div.SP-IMG_4148 span
+{
+    background: #111111;
+    color: #ffffff;
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 314px;
+    padding: 5px;
+    margin-left: 21px;
+    border-top: 1px solid #999999;
+}
+
+div.SP-IMG_4034
+{
+    position: relative;
+    display: block;
+    height: 237px;
+    width: 350px;
+}
+
+div.SP-IMG_4034 span
+{
+    background: #111111;
+    color: #ffffff;
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 340px;
+    padding: 5px;
+    margin-left: 21px;
+    border-top: 1px solid #999999;
+}
+
+div.CP-IMG_2463
+{
+    position: relative;
+    display: block;
+    height: 416px;
+    width: 300px;
+}
+
+div.CP-IMG_2463 span
+{
+    background: #111111;
+    color: #ffffff;
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 290px;
+    padding: 5px;
+    margin-left: 21px;
+    border-top: 1px solid #999999;
+}
+
+div.CP-IMG_2729
+{
+    position: relative;
+    display: block;
+    height: 244px;
+    width: 450px;
+}
+
+div.CP-IMG_2729 span
+{
+    background: #111111;
+    color: #ffffff;
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 440px;
+    padding: 5px;
+    margin-left: 21px;
+    border-top: 1px solid #999999;
+}
